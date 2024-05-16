@@ -1,0 +1,27 @@
+.projects-container {
+  position: relative;
+  display: flex;
+  width: 100vw;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.content-container {
+  position: relative;
+  z-index: 1;
+  box-shadow: -3px 3px 23px 3px rgba(38, 161, 43, 0.91);
+  -webkit-box-shadow: -3px 3px 23px 3px rgba(38, 161, 43, 0.91);
+  -moz-box-shadow: -3px 3px 23px 3px rgba(38, 161, 43, 0.91);
+  width: 80vw;
+  margin: 50px;
+  padding: 50px;
+}
+
+.content {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 75vw;
+  padding: 15px;
+}
