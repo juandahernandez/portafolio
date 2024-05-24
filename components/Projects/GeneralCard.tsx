@@ -1,27 +1,36 @@
 import React, { FC, useState } from "react";
+import { useTranslation } from "react-i18next";
+import { RootState } from "@/app/store";
+import { useSelector } from "react-redux";
 import {
   Card,
-  CardActionArea,
-  CardMedia,
   CardContent,
   Typography,
   CardActions,
   Button,
 } from "@mui/material";
-import "./GeneralCard.css";
+import Image from "next/image";
 import DescriptionCardDialog from "./DescriptionCard";
+import "./GeneralCard.css";
 
 export interface GeneralCardProps {
-  imageUrl?: string;
+  firstImageUrl: string;
+  secondImageUrl?: string;
   alt?: string;
-  title?: string;
+  title: string;
+  description?: string;
 }
 
 const GeneralCard: FC<GeneralCardProps> = ({
-  imageUrl,
-  alt,
+  firstImageUrl,
+  secondImageUrl,
+  alt = "Image",
   title,
+  description,
 }: GeneralCardProps) => {
+  const darkMode = useSelector((state: RootState) => state.theme.darkMode);
+  const { t } = useTranslation();
+
   const [open, setOpen] = useState<boolean>(false);
 
   const handleClickOpen = () => {
@@ -35,57 +44,46 @@ const GeneralCard: FC<GeneralCardProps> = ({
   return (
     <div className="card-container">
       <Card
-        sx={{
-          maxWidth: 345,
-          margin: "auto",
-          borderRadius: "10px",
-          padding: "30px",
-        }}
+        className="card-content"
+        sx={{ background: darkMode ? "#556752" : "#88BB7F" }}
       >
-        <CardActionArea>
-          {/* <CardMedia
-            component="img"
-            height="140"
-            image={
-              imageUrl
-                ? imageUrl
-                : "https://tse3.mm.bing.net/th?id=OIP.D6v5iVtPVCStehgZ6WUAlAAAAA&pid=Api&P=0&h=180"
-            }
-            alt={alt ? alt : "Image"}
-          /> */}
-          <article style={{ margin: "auto" }}>
-            <img
-              src="https://tse1.mm.bing.net/th?id=OIP.LtKouP52P1bw38d8yY2SbQHaFj&pid=Api&P=0&h=180"
-              alt="mario"
-            />
-            <img
-              src="https://pluspng.com/img-png/mario-hd-png-mario-png-1840.png"
-              alt="mario"
-            />
-          </article>
-          <CardContent>
-            <Typography
-              gutterBottom
-              variant="h5"
-              component="div"
-              sx={{ textAlign: "center" }}
-            >
-              {title ? title : "Title Project"}
-            </Typography>
-          </CardContent>
-        </CardActionArea>
+        <article className="article-container">
+          <Image src={firstImageUrl} alt={alt} width={200} height={150} />
+          {secondImageUrl && (
+            <Image src={secondImageUrl} alt={alt} width={345} height={150} />
+          )}
+        </article>
+        <CardContent>
+          <Typography
+            gutterBottom
+            variant="h5"
+            component="div"
+            sx={{ textAlign: "center" }}
+          >
+            {title ? title : "Title Project"}
+          </Typography>
+        </CardContent>
         <CardActions>
           <Button
             size="small"
-            color="primary"
-            sx={{ margin: "auto" }}
+            variant="contained"
+            sx={{
+              margin: "auto",
+              background: "rgba(38, 161, 43, 0.91)",
+            }}
             onClick={handleClickOpen}
           >
-            See more
+            {t("projects-button")}
           </Button>
         </CardActions>
       </Card>
-      <DescriptionCardDialog open={open} handleClose={handleClose} />
+      <DescriptionCardDialog
+        open={open}
+        handleClose={handleClose}
+        imageUrl={firstImageUrl}
+        title={title}
+        descripction={description}
+      />
     </div>
   );
 };

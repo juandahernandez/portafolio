@@ -3,23 +3,16 @@ import { useSelector } from "react-redux";
 import { RootState } from "@/app/store";
 import Particles from "react-tsparticles";
 import { loadSlim } from "tsparticles-slim";
-import type { Container, Engine } from "tsparticles-engine";
+import type { Engine } from "tsparticles-engine";
 import "./particles.css";
 
 const ParticlesLib = () => {
   const darkMode = useSelector((state: RootState) => state.theme.darkMode);
 
   const particlesInit = useCallback(async (engine: Engine) => {
-    console.log(engine);
     await loadSlim(engine);
   }, []);
 
-  const particlesLoaded = useCallback(
-    async (container: Container | undefined) => {
-      await console.log(container);
-    },
-    []
-  );
   return (
     <div
       className="particles-container"
@@ -31,7 +24,6 @@ const ParticlesLib = () => {
       <Particles
         id="tsparticles"
         init={particlesInit}
-        loaded={particlesLoaded}
         options={{
           fpsLimit: 60,
           interactivity: {

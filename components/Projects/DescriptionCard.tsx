@@ -1,4 +1,5 @@
 import React, { FC } from "react";
+import { useTranslation } from "react-i18next";
 import {
   Card,
   CardMedia,
@@ -23,11 +24,11 @@ const Transition = React.forwardRef(function Transition(
 interface DescriptionCardDialog {
   open: boolean;
   handleClose: () => void;
-  imageUrl?: string;
+  imageUrl: string;
   gitHubUrl?: string;
   webUrl?: string;
   alt?: string;
-  title?: string;
+  title: string;
   descripction?: string;
 }
 
@@ -39,6 +40,7 @@ const DescriptionCardDialog: FC<DescriptionCardDialog> = ({
   title,
   descripction,
 }: DescriptionCardDialog) => {
+  const { t } = useTranslation();
   return (
     <div>
       <Dialog
@@ -49,13 +51,13 @@ const DescriptionCardDialog: FC<DescriptionCardDialog> = ({
         <Card sx={{ padding: 3, borderRadius: "15px" }}>
           <CardMedia
             component="img"
-            sx={{ borderRadius: "10px" }}
+            sx={{ borderRadius: "10px", maxWidth: "370px", margin: "auto" }}
             alt={alt ? alt : "Image"}
-            height="140"
+            height="300"
             image={
               imageUrl
                 ? imageUrl
-                : "https://tse3.mm.bing.net/th?id=OIP.xa7L4rkd4jgOCCRVJHkCJAAAAA&pid=Api&P=0&h=180"
+                : "https://tse1.mm.bing.net/th?id=OIP.VJHJCt5QEPXByQn7u_XsOAHaHa&pid=Api&P=0&h=180"
             }
           />
           <CardContent>
@@ -67,10 +69,13 @@ const DescriptionCardDialog: FC<DescriptionCardDialog> = ({
             </Typography>
           </CardContent>
           <CardActions>
-            <Button size="small">Web</Button>
-            <Button size="small">GitHub</Button>
-            <Button size="small" onClick={handleClose} color="error">
-              Close
+            <Button
+              variant="contained"
+              size="small"
+              onClick={handleClose}
+              color="error"
+            >
+              {t("modal-button")}
             </Button>
           </CardActions>
         </Card>

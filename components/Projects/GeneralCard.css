@@ -1,5 +1,5 @@
 .card-container {
-  background-color: aliceblue;
+  background-color: #dbe2d9;
   padding: 10px;
   border-radius: 15px;
   transition: transform 0.3s ease;
@@ -10,12 +10,31 @@
 
 .card-container:hover {
   transform: scale(1.1);
+  background-color: rgba(56, 233, 56, 0.719);
 }
 
 .card-container article {
   position: relative;
   width: 250px;
   transition: all 0.3s ease;
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  max-width: 345;
+  max-height: 400;
+  border-radius: 10px;
+  padding: 30px;
+}
+
+.article-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 article img:first-child {
@@ -64,4 +83,10 @@ article:hover::before {
 article:hover img:last-child {
   opacity: 1;
   transform: translateY(10%);
+}
+
+@media (max-width: 1380px) {
+  .card-container article {
+    width: 150px;
+  }
 }

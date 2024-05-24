@@ -1,0 +1,25 @@
+.items-navigation {
+  display: flex;
+}
+
+.items-navigation-mobile {
+  display: none;
+}
+
+.button-change-language {
+  border: none;
+  background: transparent;
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0px 10px;
+}
+
+@media (max-width: 600px) {
+  .items-navigation {
+    display: none;
+  }
+
+  .items-navigation-mobile {
+    display: flex;
+  }
+}
