@@ -52,7 +52,12 @@ const Contact = () => {
     setIsLoading(true);
 
     try {
-      const response = await emailjs.send(serviceId, templateId, form, userId);
+      const response = await emailjs.send(
+        "service_z7pyntb",
+        "template_19skj2l",
+        form,
+        "5oAtdR_LzNak9PFOr"
+      );
 
       console.log("SUCCESS!", response.status, response.text);
       setShowSuccessAlert(true);
