@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import { Box, Grid } from "@mui/material";
 import GeneralCard from "./GeneralCard";
 import ParticlesLib from "../Particles/Particles";
-import { projectData } from "../utils/projectData";
+import { projectData } from "../Utils/projectData";
 import "./projects.css";
 
 const Projects = () => {

@@ -2,8 +2,7 @@
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import emailjs from "emailjs-com";
-import ContactIcons from "./ContactIcons";
-import Container from "../utils/Container";
+import Container from "../Utils/Container";
 import {
   TextField,
   Button,
@@ -14,6 +13,7 @@ import {
 } from "@mui/material";
 import { RootState } from "@/app/store";
 import { useSelector } from "react-redux";
+import ContactIcons from "./ContactIcons";
 import "./contact.css";
 
 const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "";

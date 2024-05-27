@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next";
 import { Box, Button, Typography } from "@mui/material";
 import { RootState } from "@/app/store";
 import { useSelector } from "react-redux";
-import Container from "../utils/Container";
+import Container from "../Utils/Container";
 import CvDialog from "./CvDialog";
 import "./about.css";
 

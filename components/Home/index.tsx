@@ -3,8 +3,8 @@ import React from "react";
 import { RootState } from "@/app/store";
 import { useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
-import Container from "../utils/Container";
-import { subtitleData } from "../utils/subtitleData";
+import Container from "../Utils/Container";
+import { subtitleData } from "../Utils/subtitleData";
 import "./home.css";
 
 const Home = () => {
