@@ -1,13 +1,9 @@
 "use client";
-import About from "@/components/About/About";
+import About from "@/components/about/About";
 import React from "react";
 
 const AboutPage = () => {
-  return (
-    <div>
-      <About />
-    </div>
-  );
+  return <About />;
 };
 
 export default AboutPage;

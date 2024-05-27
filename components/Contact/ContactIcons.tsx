@@ -6,7 +6,7 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import { socialMediaLinks } from "../Utils/socialMediaLinks";
+import { socialMediaLinks } from "../utils/socialMediaLinks";
 import "./contactIcons.css";
 
 const ContactIcons = () => {

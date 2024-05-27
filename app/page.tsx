@@ -1,13 +1,9 @@
 "use client";
 import React from "react";
-import Home from "@/components/Home/Home";
+import Home from "@/components/home/Home";
 
 const Indexpage = () => {
-  return (
-    <div>
-      <Home />
-    </div>
-  );
+  return <Home />;
 };
 
 export default Indexpage;
