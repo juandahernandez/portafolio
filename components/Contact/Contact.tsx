@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import emailjs from "emailjs-com";
-import ContactIcons from "../Navigation/ContactIcons";
+import ContactIcons from "./ContactIcons";
 import Container from "../Utils/Container";
 import {
   TextField,
@@ -53,10 +53,10 @@ const Contact = () => {
 
     try {
       const response = await emailjs.send(
-        "service_z7pyntb",
-        "template_19skj2l",
+        serviceId,
+        templateId,
         form,
-        "5oAtdR_LzNak9PFOr"
+        templateId
       );
 
       console.log("SUCCESS!", response.status, response.text);
