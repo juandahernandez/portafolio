@@ -1,6 +1,6 @@
 "use client";
 import React, { FC, ReactNode } from "react";
-import ParticlesLib from "../particles/Particles";
+import ParticlesLib from "../Particles/Particles";
 import { RootState } from "@/app/store";
 import { useSelector } from "react-redux";
 import "./container.css";
