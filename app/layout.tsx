@@ -1,6 +1,7 @@
 "use client";
 import { Inter } from "next/font/google";
 // import Navigation from "@/components/Navigation/Navigation";
+import Test from "@/components/Test";
 import { I18nextProvider } from "react-i18next";
 import { Provider } from "react-redux";
 import { store } from "./store";
@@ -20,6 +21,7 @@ export default function RootLayout({
         <Provider store={store}>
           <I18nextProvider i18n={i18n}>
             {/* <Navigation /> */}
+            <Test />
             {children}
           </I18nextProvider>
         </Provider>
