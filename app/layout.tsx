@@ -1,6 +1,6 @@
 "use client";
 import { Inter } from "next/font/google";
-import Navigation from "@/components/Navigation/index";
+import Navigation from "@/components/navigation/index";
 import { I18nextProvider } from "react-i18next";
 import { Provider } from "react-redux";
 import { store } from "./store";
