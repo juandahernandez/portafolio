@@ -1,5 +1,5 @@
 "use client";
-import About from "@/components/about/About";
+import About from "@/components/about";
 import React from "react";
 
 const AboutPage = () => {

@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import Projects from "@/components/projects/Projects";
+import Projects from "@/components/projects";
 
 const ProjectsPage = () => {
   return <Projects />;
