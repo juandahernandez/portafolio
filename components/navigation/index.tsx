@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Link from "next/link";
 import {
@@ -49,6 +49,22 @@ const Navigation = () => {
     },
   ];
 
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth > 600 && anchorElNav !== null) {
+        handleCloseNavMenu();
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    handleResize();
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [anchorElNav]);
+
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
   };
@@ -92,8 +108,15 @@ const Navigation = () => {
               onClose={handleCloseNavMenu}
             >
               {itemsAppBar.map((item, index) => (
-                <MenuItem key={index} onClick={handleCloseNavMenu}>
-                  <Link href={item?.url}>{item.name}</Link>
+                <MenuItem
+                  id="menuItem"
+                  key={index}
+                  onClick={handleCloseNavMenu}
+                  className="menu-item-mobile"
+                >
+                  <Link className="link-menu-mobile" href={item?.url}>
+                    {item.name}
+                  </Link>
                 </MenuItem>
               ))}
             </Menu>

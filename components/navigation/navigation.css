@@ -6,6 +6,33 @@
   display: none;
 }
 
+.menu-item-mobile {
+  height: 135px;
+}
+
+.link-menu-mobile {
+  font-size: 15px;
+  font-weight: bold;
+  width: 100vw;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.link-menu-mobile:hover {
+  border-radius: 5px;
+  background: rgba(38, 161, 43, 0.91);
+}
+
+.css-3dzjca-MuiPaper-root-MuiPopover-paper-MuiMenu-paper {
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  margin-top: 20px;
+  height: 100vh;
+  width: 100vw;
+}
+
 .button-change-language {
   border: none;
   background: transparent;
