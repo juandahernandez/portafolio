@@ -19,7 +19,7 @@ const CvDialog: FC<CvDialogProps> = ({ handleClose, open }) => {
       <DialogContent>
         <Image
           className="image-content"
-          src="/cv1.jpg"
+          src="/cv.png"
           alt={"Image About"}
           width={500}
           height={900}
