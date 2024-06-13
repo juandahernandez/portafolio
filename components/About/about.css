@@ -10,3 +10,9 @@
   padding: 0px 10px;
   margin-bottom: 50px;
 }
+
+@media (max-width: 600px) {
+  .about-container {
+    padding: 5px;
+  }
+}

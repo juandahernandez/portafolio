@@ -49,5 +49,7 @@
   .content-container {
     flex-direction: column;
     align-items: normal;
+    width: 95%;
+    padding: 2px;
   }
 }
