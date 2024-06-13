@@ -26,7 +26,7 @@ const Cover: FC<CoverProps> = ({ darkMode }) => {
           {t("name")}
         </h1>
         <h4
-          className="list-container"
+          className="profecion-container"
           style={{
             textShadow: `-2px -2px ${darkMode ? "white" : "black"}`,
           }}

@@ -33,7 +33,6 @@ const Experience = () => {
           <List options={experinceList} />
           <a href="https://www.isanda.co/" target="_blank">
             <Image
-              className="image-content"
               src="/isanda.png"
               alt={"Image About"}
               width={200}
