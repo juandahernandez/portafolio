@@ -1,12 +1,14 @@
 "use client";
 import React, { useState } from "react";
-import Image from "next/image";
 import { useTranslation } from "react-i18next";
-import { Box, Button, Typography } from "@mui/material";
+import { Grid } from "@mui/material";
 import { RootState } from "@/app/store";
 import { useSelector } from "react-redux";
-import Container from "../Utils/Container";
+import Container from "../Utils/container/Container";
 import CvDialog from "./CvDialog";
+import AnimationCard from "../Utils/animationCard/AnimationCard";
+import { hobbiesData } from "../Utils/data/aboutData";
+import DescriptionCard from "../Utils/descriptionCard/DescriptionCard";
 import "./about.css";
 
 const About = () => {
@@ -23,53 +25,61 @@ const About = () => {
     setOpen(false);
   };
 
+  const buttons = [
+    {
+      text: t("see-cv"),
+      onClick: handleClickOpen,
+    },
+    {
+      text: t("download-cv"),
+      href: "/cv.pdf",
+      download: true,
+    },
+  ];
+
   return (
     <Container>
-      <Box className="about-container">
-        <h2 style={{ textShadow: `-2px -2px ${darkMode ? "white" : "black"}` }}>
-          {t("about")}
-        </h2>
-        <Box className="about-description-container">
-          <Box style={{ margin: "20px 0px" }}>
-            <Image
-              className="image-content"
-              src="/ImageAbout.jpg"
-              alt={"Image About"}
-              width={300}
-              height={230}
-            />
-          </Box>
-          <Box
-            className="text-container"
-            sx={{ width: { xs: "85%", md: "40%" } }}
-          >
-            <Typography className="text-content">{t("description")}</Typography>
-          </Box>
-        </Box>
-        <Box>
-          <Button
-            variant="contained"
-            style={{
-              background: "rgba(38, 161, 43, 0.91)",
-            }}
-            onClick={handleClickOpen}
-          >
-            {t("see-cv")}
-          </Button>
-          <Button
-            variant="contained"
-            style={{
-              background: "rgba(38, 161, 43, 0.91)",
-              marginLeft: 15,
-            }}
-          >
-            <a href="/cv.pdf" download>
-              {" "}
-              {t("download-cv")}{" "}
-            </a>
-          </Button>
-        </Box>
-      </Box>
+      <div className="about-container">
+        <div className="description-container">
+          <DescriptionCard
+            darkMode={darkMode}
+            title={t("about")}
+            description={t("about-description")}
+            imageSrc="/aboutImage.png"
+            imageAlt="Image About"
+            widthImage={350}
+            heightImage={300}
+            buttons={buttons}
+          />
+
+          <DescriptionCard
+            darkMode={darkMode}
+            description={t("about-hobbies")}
+            imageSrc="/aboutImage2.png"
+            imageAlt="Image About"
+            widthImage={300}
+            heightImage={230}
+            reverseOrder={true}
+          />
+        </div>
+        <Grid
+          container
+          spacing={{ xs: 4, md: 4 }}
+          columns={{ xs: 4, sm: 8, md: 12 }}
+        >
+          {hobbiesData?.map((project, index) => (
+            <Grid item xs={4} sm={4} md={4} key={index}>
+              <AnimationCard
+                title={project?.title}
+                description={project?.description}
+                firstImageUrl={project?.firstImageUrl}
+                secondImageUrl={project?.secondImageUrl}
+                alt={project?.alt}
+              />
+            </Grid>
+          ))}
+        </Grid>
+      </div>
       <CvDialog open={open} handleClose={handleClose} />
     </Container>
   );

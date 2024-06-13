@@ -15,11 +15,9 @@ const ParticlesLib = () => {
 
   return (
     <div
-      className="particles-container"
-      style={{
-        backgroundColor: darkMode ? "black" : "white",
-        color: darkMode ? "white" : "black",
-      }}
+      className={`particles-container ${
+        darkMode ? "particles-container-dark" : "particles-container-light"
+      }`}
     >
       <Particles
         id="tsparticles"

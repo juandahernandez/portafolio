@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import emailjs from "emailjs-com";
-import Container from "../Utils/Container";
+import Container from "../Utils/container/Container";
 import {
   TextField,
   Button,
@@ -16,6 +16,12 @@ import { useSelector } from "react-redux";
 import ContactIcons from "./ContactIcons";
 import "./contact.css";
 
+type FormContact = {
+  name: string;
+  email: string;
+  message: string;
+};
+
 const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "";
 const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "";
 const userId = process.env.NEXT_PUBLIC_EMAILJS_USER_ID || "";
@@ -28,10 +34,10 @@ const Contact = () => {
   const { t } = useTranslation();
   const darkMode = useSelector((state: RootState) => state.theme.darkMode);
 
-  const [isLoading, setIsLoading] = useState(false);
-  const [showSuccessAlert, setShowSuccessAlert] = useState(false);
-  const [showErrorAlert, setShowErrorAlert] = useState(false);
-  const [form, setForm] = useState({
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [showSuccessAlert, setShowSuccessAlert] = useState<boolean>(false);
+  const [showErrorAlert, setShowErrorAlert] = useState<boolean>(false);
+  const [form, setForm] = useState<FormContact>({
     name: "",
     email: "",
     message: "",
@@ -79,6 +85,7 @@ const Contact = () => {
       setIsLoading(false);
     }
   };
+
   return (
     <Container>
       <Box
@@ -133,17 +140,12 @@ const Contact = () => {
           required
         />
         <Button
-          style={{
-            width: "20%",
-            margin: "auto",
-            marginTop: 10,
-            background: "rgba(38, 161, 43, 0.91)",
-          }}
+          className="button-styles"
           type="submit"
           variant="contained"
           disabled={isLoading}
         >
-          {isLoading ? <CircularProgress size={20} /> : `${t("form-button")}`}
+          {isLoading ? <CircularProgress size={20} /> : t("form-button")}
         </Button>
       </Box>
       <ContactIcons />

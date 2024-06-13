@@ -21,25 +21,24 @@ const Transition = React.forwardRef(function Transition(
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-interface DescriptionCardDialog {
+interface AnimationCardDialogProps {
   open: boolean;
   handleClose: () => void;
   imageUrl: string;
-  gitHubUrl?: string;
   webUrl?: string;
   alt?: string;
   title: string;
   descripction?: string;
 }
 
-const DescriptionCardDialog: FC<DescriptionCardDialog> = ({
+const AnimationCardDialog: FC<AnimationCardDialogProps> = ({
   open,
   handleClose,
-  imageUrl,
+  imageUrl = "./notImage.jpg",
   alt,
   title,
   descripction,
-}: DescriptionCardDialog) => {
+}: AnimationCardDialogProps) => {
   const { t } = useTranslation();
   return (
     <div>
@@ -54,18 +53,14 @@ const DescriptionCardDialog: FC<DescriptionCardDialog> = ({
             sx={{ borderRadius: "10px", maxWidth: "370px", margin: "auto" }}
             alt={alt ? alt : "Image"}
             height="300"
-            image={
-              imageUrl
-                ? imageUrl
-                : "https://tse1.mm.bing.net/th?id=OIP.VJHJCt5QEPXByQn7u_XsOAHaHa&pid=Api&P=0&h=180"
-            }
+            image={imageUrl}
           />
           <CardContent>
             <Typography gutterBottom variant="h5" component="div">
-              {title ? title : "Title Project"}
+              {title ? t(title) : "My hobbie"}
             </Typography>
             <Typography variant="body2" color="text.secondary">
-              {descripction ? descripction : "Description project"}
+              {descripction ? t(descripction) : "Description project"}
             </Typography>
           </CardContent>
           <CardActions>
@@ -84,4 +79,4 @@ const DescriptionCardDialog: FC<DescriptionCardDialog> = ({
   );
 };
 
-export default DescriptionCardDialog;
+export default AnimationCardDialog;

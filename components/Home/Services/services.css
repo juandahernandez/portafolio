@@ -1,0 +1,18 @@
+.services-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 50px 0px;
+}
+
+.button-service {
+  background: rgba(38, 161, 43, 0.91);
+  margin: 2px;
+}
+
+.button-service:hover {
+  transform: scale(1.2);
+  background: rgba(38, 161, 43, 0.91);
+}

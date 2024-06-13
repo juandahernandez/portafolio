@@ -1,3 +1,31 @@
+.toolbar {
+  display: flex;
+  height: 90px;
+  justify-content: space-around;
+  border-bottom: 4px solid #416f3c;
+  transition: all 0.3s ease;
+}
+
+.toolbar-dark {
+  background: linear-gradient(
+    90deg,
+    rgba(132, 223, 51, 1) 0%,
+    rgba(205, 227, 188, 1) 99%,
+    rgba(136, 166, 95, 1) 100%
+  );
+  color: black;
+}
+
+.toolbar-light {
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(91, 212, 13, 1) 100%,
+    rgba(0, 212, 255, 1) 100%
+  );
+  color: white;
+}
+
 .items-navigation {
   display: flex;
 }

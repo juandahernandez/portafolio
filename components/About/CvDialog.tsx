@@ -21,12 +21,14 @@ const CvDialog: FC<CvDialogProps> = ({ handleClose, open }) => {
           className="image-content"
           src="/cv.png"
           alt={"Image About"}
-          width={500}
-          height={900}
+          width={600}
+          height={950}
         />
       </DialogContent>
       <DialogActions>
-        <Button onClick={handleClose}>{t("modal-button")}</Button>
+        <Button color="error" onClick={handleClose}>
+          {t("modal-button")}
+        </Button>
       </DialogActions>
     </Dialog>
   );

@@ -5,4 +5,15 @@
   width: 100vw;
   min-height: 100%;
   z-index: -1;
+  transition: all 0.3s ease;
+}
+
+.particles-container-dark {
+  background-color: black;
+  color: white;
+}
+
+.particles-container-light {
+  background-color: white;
+  color: black;
 }

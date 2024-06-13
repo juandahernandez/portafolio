@@ -2,16 +2,11 @@ import React, { FC, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { RootState } from "@/app/store";
 import { useSelector } from "react-redux";
-import {
-  Card,
-  CardContent,
-  Typography,
-  CardActions,
-  Button,
-} from "@mui/material";
+import { Card, CardContent, CardActions } from "@mui/material";
 import Image from "next/image";
-import DescriptionCardDialog from "./DescriptionCard";
-import "./GeneralCard.css";
+import AnimationCardDialog from "./AnimationCardDialog";
+import Button from "../button/Button";
+import "./AnimationCard.css";
 
 export interface GeneralCardProps {
   firstImageUrl: string;
@@ -21,7 +16,7 @@ export interface GeneralCardProps {
   description?: string;
 }
 
-const GeneralCard: FC<GeneralCardProps> = ({
+const AnimationCard: FC<GeneralCardProps> = ({
   firstImageUrl,
   secondImageUrl,
   alt = "Image",
@@ -41,6 +36,13 @@ const GeneralCard: FC<GeneralCardProps> = ({
     setOpen(false);
   };
 
+  const buttons = [
+    {
+      text: t("see-more-button"),
+      onClick: handleClickOpen,
+    },
+  ];
+
   return (
     <div className="card-container">
       <Card
@@ -54,30 +56,13 @@ const GeneralCard: FC<GeneralCardProps> = ({
           )}
         </article>
         <CardContent>
-          <Typography
-            gutterBottom
-            variant="h5"
-            component="div"
-            sx={{ textAlign: "center" }}
-          >
-            {title ? title : "Title Project"}
-          </Typography>
+          <h4>{title ? t(title) : "My hobbie"}</h4>
         </CardContent>
         <CardActions>
-          <Button
-            size="small"
-            variant="contained"
-            sx={{
-              margin: "auto",
-              background: "rgba(38, 161, 43, 0.91)",
-            }}
-            onClick={handleClickOpen}
-          >
-            {t("projects-button")}
-          </Button>
+          <Button buttons={buttons} />
         </CardActions>
       </Card>
-      <DescriptionCardDialog
+      <AnimationCardDialog
         open={open}
         handleClose={handleClose}
         imageUrl={firstImageUrl}
@@ -88,4 +73,4 @@ const GeneralCard: FC<GeneralCardProps> = ({
   );
 };
 
-export default GeneralCard;
+export default AnimationCard;

@@ -1,0 +1,21 @@
+.experience-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0px 30px;
+}
+
+.list-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 95%;
+  margin: auto;
+}
+
+@media (max-width: 1000px) {
+  .list-container {
+    flex-direction: column;
+  }
+}

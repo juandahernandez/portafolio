@@ -9,6 +9,13 @@
   border-radius: 10px;
 }
 
+.button-styles {
+  width: 20%;
+  margin: auto;
+  margin-top: 10px;
+  background: rgba(38, 161, 43, 0.91);
+}
+
 @media (max-width: 600px) {
   .contac-container {
     width: 95%;

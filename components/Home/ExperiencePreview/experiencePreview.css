@@ -1,0 +1,38 @@
+.experience-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: start;
+  padding: 20px;
+  margin-top: 50px;
+  border-radius: 5px;
+}
+
+.experience-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.text-experience-content {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-experience-content {
+  width: 32%;
+  border-radius: 5px;
+}
+
+@media (max-width: 650px) {
+  .image-experience-content {
+    display: none;
+  }
+
+  .text-experience-content {
+    width: 100%;
+  }
+}

@@ -32,19 +32,19 @@ const Navigation = () => {
 
   const itemsAppBar = [
     {
-      name: t("home"),
+      name: "home",
       url: "/",
     },
     {
-      name: t("about"),
+      name: "about",
       url: "/about",
     },
     {
-      name: t("projects"),
-      url: "/projects",
+      name: "experience",
+      url: "/experience",
     },
     {
-      name: t("contact"),
+      name: "contact",
       url: "/contact",
     },
   ];
@@ -75,6 +75,7 @@ const Navigation = () => {
 
   const toggleLanguage = () => {
     const newLanguage = i18n.language === "es" ? "en" : "es";
+    console.log(newLanguage);
     i18n.changeLanguage(newLanguage);
   };
 
@@ -84,15 +85,7 @@ const Navigation = () => {
     <div style={{ position: "sticky" }}>
       <AppBar position="sticky">
         <Toolbar
-          sx={{
-            display: "flex",
-            justifyContent: "space-around",
-            background: darkMode
-              ? "linear-gradient(90deg, rgba(132,223,51,1) 0%, rgba(205,227,188,1) 99%, rgba(136,166,95,1) 100%)"
-              : "linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(91,212,13,1) 100%, rgba(0,212,255,1) 100%)",
-            color: darkMode ? "black" : "white",
-            borderBottom: "4px solid #416F3C",
-          }}
+          className={`toolbar ${darkMode ? "toolbar-dark" : "toolbar-light"}`}
         >
           <IconButton component="a" href="/">
             <Avatar alt=" Image" src="/logo.png" />
@@ -115,7 +108,7 @@ const Navigation = () => {
                   className="menu-item-mobile"
                 >
                   <Link className="link-menu-mobile" href={item?.url}>
-                    {item.name}
+                    {t(item.name)}
                   </Link>
                 </MenuItem>
               ))}
@@ -125,9 +118,9 @@ const Navigation = () => {
             {itemsAppBar.map((item, index) => (
               <MenuItem
                 key={index}
-                style={{ fontSize: "15px", fontWeight: "bold" }}
+                style={{ fontSize: "20px", fontWeight: "bold" }}
               >
-                <Link href={item?.url}>{item.name}</Link>
+                <Link href={item?.url}>{t(item.name)}</Link>
               </MenuItem>
             ))}
           </Box>
