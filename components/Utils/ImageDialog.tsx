@@ -6,24 +6,29 @@ import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
+import { DialogTitle } from "@mui/material";
 
 interface CvDialogProps {
   open: boolean;
   handleClose: () => void;
+  title?: string;
+  imageUrl: string;
+  alt?: string;
 }
 
-const CvDialog: FC<CvDialogProps> = ({ handleClose, open }) => {
+const ImageDialog: FC<CvDialogProps> = ({
+  handleClose,
+  open,
+  title = "",
+  imageUrl,
+  alt = "Image",
+}) => {
   const { t } = useTranslation();
   return (
-    <Dialog open={open} onClose={handleClose} style={{ width: "100%" }}>
+    <Dialog open={open} onClose={handleClose}>
+      <DialogTitle>{t(title)}</DialogTitle>
       <DialogContent>
-        <Image
-          className="image-content"
-          src="/cv.png"
-          alt={"Image About"}
-          width={600}
-          height={950}
-        />
+        <Image src={imageUrl} alt={alt} width={600} height={950} />
       </DialogContent>
       <DialogActions>
         <Button color="error" onClick={handleClose}>
@@ -34,4 +39,4 @@ const CvDialog: FC<CvDialogProps> = ({ handleClose, open }) => {
   );
 };
 
-export default CvDialog;
+export default ImageDialog;

@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import Image from "next/image";
 import Container from "../Utils/container/Container";
@@ -7,21 +8,35 @@ import Text from "../Utils/text/Text";
 import List from "../Utils/list/List";
 import Button from "../Utils/button/Button";
 import Paralax from "../Utils/Paralax/Paralax";
+import RecomendationDialog from "../Utils/ImageDialog";
 import "./experience.css";
 
 const Experience = () => {
   const { t } = useTranslation();
 
+  const [open, setOpen] = useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
   const buttons = [
     {
-      text: "Ver carta de recomendacion",
+      text: "button-see-letter-recommendation",
+      onClick: handleClickOpen,
     },
     {
-      text: "descargar carta de recomendacion",
+      text: "button-download-letter-recommendation",
+      href: "/cv.png", // TODO : change to the recommendation when you have
+      download: true,
     },
     {
-      text: "Visita la web de Isanda",
-      href: "https://example.com",
+      text: "button-visit-web",
+      href: "https://www.isanda.co/",
       target: "_blank",
     },
   ];
@@ -46,6 +61,11 @@ const Experience = () => {
         </div>
       </div>
       <Paralax message="experience-message" href="https://wa.me/3192028840" />
+      <RecomendationDialog
+        open={open}
+        handleClose={handleClose}
+        imageUrl="/cv.png"
+      />
     </Container>
   );
 };

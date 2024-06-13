@@ -5,7 +5,7 @@ import { Grid } from "@mui/material";
 import { RootState } from "@/app/store";
 import { useSelector } from "react-redux";
 import Container from "../Utils/container/Container";
-import CvDialog from "./CvDialog";
+import CvDialog from "../Utils/ImageDialog";
 import AnimationCard from "../Utils/animationCard/AnimationCard";
 import { hobbiesData } from "../Utils/data/aboutData";
 import DescriptionCard from "../Utils/descriptionCard/DescriptionCard";
@@ -27,11 +27,11 @@ const About = () => {
 
   const buttons = [
     {
-      text: t("see-cv"),
+      text: "see-cv",
       onClick: handleClickOpen,
     },
     {
-      text: t("download-cv"),
+      text: "download-cv",
       href: "/cv.pdf",
       download: true,
     },
@@ -80,7 +80,7 @@ const About = () => {
           ))}
         </Grid>
       </div>
-      <CvDialog open={open} handleClose={handleClose} />
+      <CvDialog open={open} handleClose={handleClose} imageUrl="/cv.png" />
     </Container>
   );
 };
