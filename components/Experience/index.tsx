@@ -31,7 +31,7 @@ const Experience = () => {
     },
     {
       text: "button-download-letter-recommendation",
-      href: "/cv.png", // TODO : change to the recommendation when you have
+      href: "/workingLetter.pdf",
       download: true,
     },
     {
@@ -64,7 +64,7 @@ const Experience = () => {
       <RecomendationDialog
         open={open}
         handleClose={handleClose}
-        imageUrl="/cv.png"
+        imageUrl="/workingLetter.jpeg"
       />
     </Container>
   );
