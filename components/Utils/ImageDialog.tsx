@@ -28,7 +28,7 @@ const ImageDialog: FC<CvDialogProps> = ({
     <Dialog open={open} onClose={handleClose}>
       <DialogTitle>{t(title)}</DialogTitle>
       <DialogContent>
-        <Image src={imageUrl} alt={alt} width={600} height={950} />
+        <Image src={imageUrl} alt={alt} width={700} height={950} />
       </DialogContent>
       <DialogActions>
         <Button color="error" onClick={handleClose}>
